@@ -11,11 +11,13 @@ export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const addGoalHandler = (enteredGoalText) => {
-    setGoals((prev) => [
-      ...prev,
-      { text: enteredGoalText, id: Math.random().toString() },
-    ]);
-    modalVisibilityHandler();
+    if (enteredGoalText) {
+      setGoals((prev) => [
+        ...prev,
+        { text: enteredGoalText, id: Math.random().toString() },
+      ]);
+      modalVisibilityHandler();
+    }
   };
 
   const removeGoalHandler = (removableGoal) => {
